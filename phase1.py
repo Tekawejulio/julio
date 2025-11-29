@@ -48,7 +48,7 @@ class Rendez_vous(Docteur):
     def __init__(self, rdv_id, doctor_id, patient_id, date_heure, motif, date_creation=None):
         super().__init__(Nom, Prenom, Age, Type_, telephone, email, localite)
         self.rdv_id = rdv_id
-        self.docteur_id = docteur_id
+        self.docteur_id = docteurr_id
         self.patient_id = patient_id
         self.date_heure = date_heure
         self.motif = motif
@@ -57,7 +57,7 @@ class Rendez_vous(Docteur):
     def get_public_record(self):
         return {
             "rdv_id": self.rdv_id,
-            "Docteur_id": self.docteur_id,
+            "Doctor_id": self.docteur_id,
             "Patient_id": self.patient_id,
             "Date_heure": self.date_heure,
             "Motif": self.motif,
@@ -66,7 +66,7 @@ class Rendez_vous(Docteur):
     def prendre_rendezvous(self, rdv):
         for existant in self.rendezvous:
             if existant.docteur.docteur_id == rdv.docteur.docteur_id and existant.date_heure == rdv.date_heure:
-                print(" Ce docteur est déjà reserve a cette date ou heure !")
+                print(" Ce docteur est deja reserver a  cette date/heure !")
                 return False
         self.rendezvous.append(rdv)
         print(" votre rendez-vous a ete accepter !")
@@ -82,5 +82,4 @@ class Rendez_vous(Docteur):
 
     def afficher_rendezvous(self):
         for rdv in self.rendezvous:
-
             print(rdv)
